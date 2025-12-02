@@ -2,7 +2,13 @@ FROM python:3.10-slim
 
 # Install system dependencies for Tesseract
 RUN apt-get update && \
-    apt-get install -y tesseract-ocr libtesseract-dev libleptonica-dev && \
+    apt-get install -y \
+        tesseract-ocr \
+        tesseract-ocr-deu \
+        tesseract-ocr-eng \
+        tesseract-ocr-osd \
+        libtesseract-dev \
+        libleptonica-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Set working directory
