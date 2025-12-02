@@ -41,8 +41,12 @@ def ocr():
         img = Image.open(BytesIO(r.content)).convert("RGB")
 
         ocr_data = pytesseract.image_to_data(
-            img, output_type=pytesseract.Output.DICT
-        )
+    img,
+    lang="deu+eng",
+    config="--oem 3 --psm 6",
+    output_type=pytesseract.Output.DICT
+)
+
 
         results = []
         for i in range(len(ocr_data["text"])):
